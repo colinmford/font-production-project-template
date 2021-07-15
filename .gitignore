@@ -1,0 +1,8 @@
+# Leave out invisible files
+.DS_Store
+
+# Ignore Python .pyc files
+*.pyc
+
+# virtual environment files
+venv

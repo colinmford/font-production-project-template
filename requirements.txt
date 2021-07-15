@@ -1,0 +1,5 @@
+fonttools[ufo,lxml,woff,unicode,pathops]
+fontmake
+fontbakery
+gftools
+psautohint
