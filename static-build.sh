@@ -54,7 +54,7 @@ rm -rf "$ttfDir/*.ttf"
 # making the ttfs from the designspace file
 find "$sourcesDir" -path '**/*.designspace' -print0 | while read -d $'\0' dsFile
 do
-    fontmake --mm-designspace "$dsFile" --output ttf --interpolate --output-dir "$ttfDir" --production-names  --overlaps-backend pathops --flatten-components
+    fontmake --mm-designspace "$dsFile" --output ttf --interpolate --output-dir "$ttfDir" --production-names --overlaps-backend pathops --flatten-components
 done
 
 # -----------------------------------------------------------------------

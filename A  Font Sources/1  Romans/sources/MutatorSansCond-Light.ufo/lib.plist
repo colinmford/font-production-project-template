@@ -677,6 +677,11 @@
 			<string>space</string>
 			<string>IJ</string>
 		</array>
+		<key>public.postscriptNames</key>
+		<dict>
+			<key>dot</key>
+			<string>uni27D1</string>
+		</dict>
 		<key>testLibItemKey</key>
 		<array>
 			<string>a</string>

@@ -394,5 +394,10 @@
 			<string>arrowright</string>
 			<string>arrowup</string>
 		</array>
+		<key>public.postscriptNames</key>
+		<dict>
+			<key>dot</key>
+			<string>uni27D1</string>
+		</dict>
 	</dict>
 </plist>
