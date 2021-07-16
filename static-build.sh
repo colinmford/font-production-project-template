@@ -37,6 +37,7 @@ done
 find "$otfDir" -path '*.otf' -print0 | while read -d $'\0' otfFile
 do
     psautohint --all "$otfFile"
+    gftools fix-dsig --autofix "$otfFile"
 done
 
 # -----------------------------------------------------------------------
@@ -66,6 +67,8 @@ do
     "./C  Project Files/bin/ttfautohint-1.8.3" --no-info --stem-width-mode=qsn "$ttfFile" "$ttfFile-output"
     rm "$ttfFile"
     mv "$ttfFile-output" "$ttfFile"
+
+    gftools fix-dsig --autofix "$ttfFile"
 done
 
 

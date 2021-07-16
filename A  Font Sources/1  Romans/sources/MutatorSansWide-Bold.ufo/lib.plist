@@ -393,6 +393,7 @@
 			<string>arrowleft</string>
 			<string>arrowright</string>
 			<string>arrowup</string>
+			<string>nbspace</string>
 		</array>
 		<key>public.postscriptNames</key>
 		<dict>

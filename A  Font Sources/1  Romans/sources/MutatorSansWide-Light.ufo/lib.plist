@@ -661,6 +661,7 @@
 			<string>acute</string>
 			<string>space</string>
 			<string>IJ</string>
+			<string>nbspace</string>
 		</array>
 		<key>public.postscriptNames</key>
 		<dict>
