@@ -1,4 +1,4 @@
-# Font Production Project Template (For Glyphs)
+# Font Production Project Template (for UFO/Designspace)
 Replace this Readme with info about your project!
 
 Note: This is for a UFO/Designspace project
