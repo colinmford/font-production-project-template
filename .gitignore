@@ -6,3 +6,4 @@
 
 # virtual environment files
 venv
+.venv
