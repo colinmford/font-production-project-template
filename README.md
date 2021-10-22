@@ -38,5 +38,13 @@ Build OTFs, TTFs and WOFFs from `.designspace` files in `A  Font Sources`
 ```
 Use `fontbakery` to check the OTFs and TTFs in `B  Builds`, generates an HTML output in `D  Proofs`
 
+
+### Freezing the development environment
+To "Freeze" all the dependencies in the python environment, run this command. 
+```bash
+pip freeze > requirements.txt
+```
+This will overwrite the `requirements.txt` with the packages pip has installed and their exact version numbers. This will ensure that the next time you need to restart the virtual environment, all the dependencies will be exactly the same.
+
 # License
 Uses MIT license. Demo fonts are Mutator Sans, by Erik van Blokland, also licensed under MIT (or BSD?).
