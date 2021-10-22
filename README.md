@@ -1,7 +1,7 @@
 # Font Production Project Template (for UFO/Designspace)
 Replace this Readme with info about your project!
 
-Note: This is for a UFO/Designspace project
+Note: This is for a UFO3/Designspace project
 
 ## Commands
 ### Starting a local development environment
@@ -19,7 +19,7 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-... to install the requirements of the project in the virtual environment. (You can also just skip the above two steps to install the requirements on your system python, but that might make things messy down the road).
+... to install the requirements of the project in the virtual environment.
 
 And finally, if any of the below commands don't work, you might have left the virtual environment. You just need to re-activate it:
 ```bash
@@ -44,7 +44,7 @@ To "Freeze" all the dependencies in the python environment, run this command.
 ```bash
 pip freeze > requirements.txt
 ```
-This will overwrite the `requirements.txt` with the packages pip has installed and their exact version numbers. This will ensure that the next time you need to restart the virtual environment, all the dependencies will be exactly the same.
+This will overwrite the `requirements.txt` with the packages pip has installed and their exact version numbers. This will ensure that the next time you need to run `pip install -r requirements.txt`, all the dependencies will be exactly the same.
 
 # License
 Uses MIT license. Demo fonts are Mutator Sans, by Erik van Blokland, also licensed under MIT (or BSD?).
