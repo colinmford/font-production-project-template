@@ -12,17 +12,17 @@ Use Python3 to start a new virtual environment:
 python3 -m venv .venv
 ```
 
-activate that environment:
+... Activate that environment:
 ```bash
 source .venv/bin/activate
 ```
 
-Install the requirements of the project in the virtual environment:
+... Install the requirements of the project in the virtual environment:
 ```bash
 pip install -r requirements.txt
 ```
 
-And finally, if any of the below build commands don't work, you might have left the virtual environment. You just need to re-activate it:
+... And finally, if any of the below build commands don't work, you might have left the virtual environment. You just need to re-activate it:
 ```bash
 source .venv/bin/activate
 ```
