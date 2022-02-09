@@ -18,11 +18,11 @@ woffDir="$buildDir/WOFFs"
 
 echo "Building OTFs..."
 
-# making the otf directory if it doesn't exist
-mkdir -p "$otfDir"
+# removing old files
+rm -rf "$otfDir"
 
-# removing old files if it did
-rm -rf "$otfDir/*.otf"
+# making the otf directory
+mkdir -p "$otfDir"
 
 # making the otf files from the designspace file
 find "$sourcesDir" -path '**/*.designspace' -print0 | while read -d $'\0' dsFile
@@ -46,11 +46,11 @@ done
 echo " "
 echo "Building TTFs..."
 
-# making the ttf directory if it doesn't exist
-mkdir -p "$ttfDir"
+# removing old files
+rm -rf "$ttfDir"
 
-# removing old files if it did
-rm -rf "$ttfDir/*.ttf"
+# making the ttf directory
+mkdir -p "$ttfDir"
 
 # making the ttfs from the designspace file
 find "$sourcesDir" -path '**/*.designspace' -print0 | while read -d $'\0' dsFile
@@ -78,11 +78,11 @@ done
 echo " "
 echo "Making WOFF2s..."
 
-# making the woff directory if it doesn't exist
-mkdir -p "$woffDir"
+# removing old files
+rm -rf "$woffDir"
 
-# removing old files if it did
-rm -rf "$ttfDir/*.woff2"
+# making the ttf directory
+mkdir -p "$woffDir"
 
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
