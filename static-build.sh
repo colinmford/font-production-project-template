@@ -8,6 +8,7 @@ set -e
 
 sourcesDir="A  Font Sources"
 buildDir="B  Builds"
+proofDir="D  Proofs"
 
 otfDir="$buildDir/OTFs"
 ttfDir="$buildDir/TTFs"
