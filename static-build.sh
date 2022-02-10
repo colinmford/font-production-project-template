@@ -98,3 +98,13 @@ done
 
 # A fancy way to get rid of the UFO instances folder made by fontmake, to keep this folder, comment this line out with a "#"
 find "$sourcesDir" -type d -name "instances" -exec rm -rf {} +
+
+# -----------------------------------------------------------------------
+# Tests
+# The "1>/dev/null 2>&1 || true" stuff is to limit the output in the terminal
+
+echo " "
+echo "Running Tests..."
+
+fontbakery check-universal -n --succinct --html "$proofDir/OTFs.html" "$otfDir/*.otf" 1>/dev/null 2>&1 || true
+fontbakery check-universal -n --succinct --html "$proofDir/TTFs.html" "$otfDir/*.ttf" 1>/dev/null 2>&1 || true

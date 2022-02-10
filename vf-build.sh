@@ -91,3 +91,12 @@ do
     fonttools ttLib.woff2 compress -o "$woffDir/$woff2name" "$ttfFile"
 done
 
+# -----------------------------------------------------------------------
+# Tests
+# The "1>/dev/null 2>&1 || true" stuff is to limit the output in the terminal
+
+echo " "
+echo "Running Tests..."
+
+fontbakery check-universal -n --succinct --html "$proofDir/VF-OTFs.html" "$otfDir/*.otf" 1>/dev/null 2>&1 || true
+fontbakery check-universal -n --succinct --html "$proofDir/VF-TTFs.html" "$otfDir/*.ttf" 1>/dev/null 2>&1 || true
