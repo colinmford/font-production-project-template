@@ -37,8 +37,8 @@ done
 # this loops through otfs and applies PS hinting to them
 find "$otfDir" -path '*.otf' -print0 | while read -d $'\0' otfFile
 do
+    python "C  Project Files/py/removeMacNames.py" "$otfFile"
     psautohint --all "$otfFile"
-    gftools fix-nameids "$ttfFile" --drop-mac-names
 done
 
 # -----------------------------------------------------------------------
@@ -65,8 +65,8 @@ done
 # this loops through otfs and uses the TTFAutoHinter to autohint them
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
-    gftools fix-hinting "$ttfFile"
-    gftools fix-nameids "$ttfFile" --drop-mac-names
+    python "C  Project Files/py/fixTTHintedFont.py" "$ttfFile"
+    python "C  Project Files/py/removeMacNames.py" "$ttfFile"
 done
 
 
