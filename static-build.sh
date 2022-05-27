@@ -12,7 +12,7 @@ proofDir="D  Proofs"
 
 otfDir="$buildDir/OTFs"
 ttfDir="$buildDir/TTFs"
-woffDir="$buildDir/WOFFs"
+woffDir="$buildDir/WOFF2s"
 
 # -----------------------------------------------------------------------
 # build OTFs
@@ -34,10 +34,12 @@ done
 # -----------------------------------------------------------------------
 # post-processing OTFS 
 
-# this loops through otfs and applies PS hinting to them
+# this loops through otfs and...
 find "$otfDir" -path '*.otf' -print0 | while read -d $'\0' otfFile
 do
+    # ... removes Mac names
     python "C  Project Files/py/removeMacNames.py" "$otfFile"
+    # ... applies autohinting
     psautohint --all "$otfFile"
 done
 
@@ -62,16 +64,18 @@ done
 # -----------------------------------------------------------------------
 # post-processing TTFS 
 
-# this loops through otfs and uses the TTFAutoHinter to autohint them
+# this loops through ttfs and...
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
+    # ... makes sure the head table has "Force ppem to integer values" flag set
     python "C  Project Files/py/fixTTHintedFont.py" "$ttfFile"
+    # ... removes Mac names
     python "C  Project Files/py/removeMacNames.py" "$ttfFile"
 done
 
 
 # -----------------------------------------------------------------------
-# make web font
+# make web fonts
 
 echo " "
 echo "Making WOFF2s..."
@@ -79,14 +83,15 @@ echo "Making WOFF2s..."
 # removing old files
 rm -rf "$woffDir"
 
-# making the ttf directory
+# making the woff2 directory
 mkdir -p "$woffDir"
 
+# this loops through all the TTFs in the TTF directory and...
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
-    # Replaces .ttf with .woff2 in the ttf file name
+    # Replaces .ttf with .woff2 in the file name
     woff2name=$(basename "${ttfFile/.ttf/.woff2}")
-
+    # ... and compresses them into WOFF2s
     fonttools ttLib.woff2 compress -o "$woffDir/$woff2name" "$ttfFile"
 done
 

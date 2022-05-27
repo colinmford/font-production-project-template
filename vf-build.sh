@@ -10,42 +10,14 @@ sourcesDir="A  Font Sources"
 buildDir="B  Builds"
 proofDir="D  Proofs"
 
-otfDir="$buildDir/VF-OTFs"
 ttfDir="$buildDir/VF-TTFs"
-woffDir="$buildDir/VF-WOFFs"
-
-# -----------------------------------------------------------------------
-# build OTFs
-
-echo "Building OTFs..."
-
-# removing old files
-rm -rf "$otfDir"
-
-# making the otf directory
-mkdir -p "$otfDir"
-
-# making the otf files from the designspace file
-find "$sourcesDir" -path '**/*.designspace' -print0 | while read -d $'\0' dsFile
-do
-    fileBaseName=${dsFile##*/}
-    fontmake --mm-designspace "$dsFile" --output variable-cff2 --output-path "$otfDir/${fileBaseName/.designspace/-VF.otf}" --production-names --subroutinizer cffsubr --flatten-components
-done
-
-# -----------------------------------------------------------------------
-# post-processing OTFS 
-
-# this loops through otfs and applies dsig fix to them
-find "$otfDir" -path '*.otf' -print0 | while read -d $'\0' otfFile
-do
-    python "C  Project Files/py/removeMacNames.py" "$otfFile"
-done
+woffDir="$buildDir/VF-WOFF2s"
 
 # -----------------------------------------------------------------------
 # build TTFs
 
 echo " "
-echo "Building TTFs..."
+echo "Building VF-TTFs..."
 
 # removing old files
 rm -rf "$ttfDir"
@@ -63,7 +35,7 @@ done
 # -----------------------------------------------------------------------
 # post-processing TTFS 
 
-# this loops through otfs and applies dsig fix to them
+# this loops through ttfs and...
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
     python "C  Project Files/py/removeMacNames.py" "$ttfFile"
@@ -71,7 +43,7 @@ done
 
 
 # -----------------------------------------------------------------------
-# make web font
+# make web fonts
 
 echo " "
 echo "Making WOFF2s..."
@@ -79,14 +51,15 @@ echo "Making WOFF2s..."
 # removing old files
 rm -rf "$woffDir"
 
-# making the ttf directory
+# making the woff2 directory
 mkdir -p "$woffDir"
 
+# this loops through all the TTFs in the TTF directory and...
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
-    # Replaces .ttf with .woff2 in the ttf file name
+    # Replaces .ttf with .woff2 in the file name
     woff2name=$(basename "${ttfFile/.ttf/.woff2}")
-
+    # ... and compresses them into WOFF2s
     fonttools ttLib.woff2 compress -o "$woffDir/$woff2name" "$ttfFile"
 done
 
