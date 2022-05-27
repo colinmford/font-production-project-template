@@ -38,7 +38,7 @@ done
 find "$otfDir" -path '*.otf' -print0 | while read -d $'\0' otfFile
 do
     psautohint --all "$otfFile"
-    gftools fix-dsig --autofix "$otfFile"
+    gftools fix-nameids "$ttfFile" --drop-mac-names
 done
 
 # -----------------------------------------------------------------------
@@ -56,7 +56,7 @@ mkdir -p "$ttfDir"
 # making the ttfs from the designspace file
 find "$sourcesDir" -path '**/*.designspace' -print0 | while read -d $'\0' dsFile
 do
-    fontmake --mm-designspace "$dsFile" --output ttf --interpolate --output-dir "$ttfDir" --production-names --overlaps-backend pathops --flatten-components
+    fontmake --mm-designspace "$dsFile" --output ttf --interpolate --output-dir "$ttfDir" --production-names --overlaps-backend pathops --flatten-components -a "--no-info --stem-width-mode=nnn"
 done
 
 # -----------------------------------------------------------------------
@@ -65,11 +65,8 @@ done
 # this loops through otfs and uses the TTFAutoHinter to autohint them
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
-    "./C  Project Files/bin/ttfautohint-1.8.3" --no-info --stem-width-mode=qsn "$ttfFile" "$ttfFile-output"
-    rm "$ttfFile"
-    mv "$ttfFile-output" "$ttfFile"
-
-    gftools fix-dsig --autofix "$ttfFile"
+    gftools fix-hinting "$ttfFile"
+    gftools fix-nameids "$ttfFile" --drop-mac-names
 done
 
 

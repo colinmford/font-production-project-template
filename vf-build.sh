@@ -38,7 +38,7 @@ done
 # this loops through otfs and applies dsig fix to them
 find "$otfDir" -path '*.otf' -print0 | while read -d $'\0' otfFile
 do
-    gftools fix-dsig --autofix "$otfFile"
+    gftools fix-nameids "$ttfFile" --drop-mac-names
 done
 
 # -----------------------------------------------------------------------
@@ -66,7 +66,7 @@ done
 # this loops through otfs and applies dsig fix to them
 find "$ttfDir" -path '*.ttf' -print0 | while read -d $'\0' ttfFile
 do
-    gftools fix-dsig --autofix "$ttfFile"
+    gftools fix-nameids "$ttfFile" --drop-mac-names
     gftools fix-nonhinting "$ttfFile" "$ttfFile"
     rm "${ttfFile/.ttf/-backup-fonttools-prep-gasp.ttf}"
 done

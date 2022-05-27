@@ -43,9 +43,9 @@ This will generate an HTML output in `D  Proofs`.
 ### Freezing the development environment
 To “Freeze” all the dependencies in the python environment, run this command: 
 ```bash
-pip freeze > requirements.txt
+pip freeze > requirements-freeze.txt
 ```
-This will overwrite the `requirements.txt` with the packages pip has installed and their exact version numbers. This will ensure that the next time you need to run `pip install -r requirements.txt`, all the dependencies will be exactly the same.
+This make a new `requirements-freeze.txt` with the packages pip has installed and their exact version numbers. This will ensure that the next time you initialize your project and run `pip install -r requirements-freeze.txt`, all the dependencies will be exactly the same as they are now.
 
 # License
 Uses MIT license. Demo fonts are Mutator Sans, by Erik van Blokland, also licensed under MIT (or BSD?).
