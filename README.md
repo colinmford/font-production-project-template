@@ -27,6 +27,23 @@ pip install -r requirements.txt
 source .venv/bin/activate
 ```
 
+### Adding an alias (optional)
+It might be useful to make a handy "alias" for the top two commands, since you will by typing them all the time.
+
+First, check which "shell" you are using; newer macs use `zsh`, older macs use `bash`. Run this command to check:
+```bash
+echo $SHELL
+```
+... if it says `/bin/zsh` then you're using `zsh`; if it says `/bin/bash`, then you're using `bash`.
+
+Then, paste this command to alias the first two commands above to just `venv`. Replace `~/.zshrc` with `~/.bashrc` if you are using `bash`.
+```bash
+echo 'alias venv="python3 -m venv .venv && source .venv/bin/activate"' >> ~/.zshrc
+```
+... then restart the terminal.
+
+From now on you only need to type `venv` to start a virtual environment, or activate one if it already exists.
+
 ### Building and testing fonts
 To build OTFs, TTFs and WOFFs from `.designspace` files in `A  Font Sources`, use the following command, or drag the file in to your Terminal:
 ```bash
