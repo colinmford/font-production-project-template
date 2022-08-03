@@ -70,5 +70,5 @@ done
 echo " "
 echo "Running Tests..."
 
-fontbakery check-universal -n --succinct --html "$proofDir/VF-OTFs.html" "$otfDir/*.otf" 1>/dev/null 2>&1 || true
-fontbakery check-universal -n --succinct --html "$proofDir/VF-TTFs.html" "$otfDir/*.ttf" 1>/dev/null 2>&1 || true
+
+fontbakery check-universal -n --succinct --html "$proofDir/VF-TTFs.html" "$ttfDir/*.ttf" 1>/dev/null 2>&1 || true
