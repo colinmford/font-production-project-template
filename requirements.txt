@@ -1,5 +1,8 @@
+wheel
+ufonormalizer
 fonttools[ufo,lxml,woff,unicode,pathops]
 fontmake
 fontbakery
-psautohint
 ttfautohint-py
+afdko
+gftools
