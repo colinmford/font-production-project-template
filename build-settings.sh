@@ -12,7 +12,7 @@ export CF_DEFAULT_FOUNDRY_CODE="YOUR"
 sourcesDir="A  Sources"
 buildDir="B  Builds"
 proofDir="D  Proofs"
-buildScriptsDir="C  Production Files/Build Script"
+buildScriptsDir="C  Project Files/Build Script"
 
 otfDir="$buildDir/OTFs"
 ttfDir="$buildDir/TTFs"
