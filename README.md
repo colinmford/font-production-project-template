@@ -45,16 +45,25 @@ echo 'alias venv="python3 -m venv .venv && source .venv/bin/activate"' >> ~/.zsh
 From now on you only need to type `venv` to start a virtual environment, or activate one if it already exists.
 
 ### Building and testing fonts
-To build OTFs, TTFs and WOFFs from `.designspace` files in `A  Font Sources`, use the following command, or drag the file in to your Terminal:
+To build OTFs, TTFs, Variable Fonts, and WOFFs from `.designspace` files in `A  Sources`, use the following command, or drag the file in to your Terminal:
+
 ```bash
-./static-build.sh
+./build.sh
+```
+... or you can generate things individually:
+```bash
+./build-otfs.sh
+./build-ttfs.sh
+./build-vfttfs.sh
+./build-woffs.sh
+./build-vfwoffs.sh
 ```
 
 To use `fontbakery` to check the OTFs and TTFs in `B  Builds`, use either of these commands:
 ```bash
-./static-checkOTFs.sh
-./static-checkTTFs.sh
+./build-test.sh
 ```
+
 This will generate an HTML output in `D  Proofs`.
 
 ### Freezing the development environment
